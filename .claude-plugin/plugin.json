@@ -1,0 +1,59 @@
+{
+  "name": "repository-aware-prompt-optimizer",
+  "displayName": "Repository-Aware Prompt Optimizer",
+  "description": "Converts rough developer requests into structured, repository-aware, token-efficient Claude Code prompts. Supports broken English, Hinglish, vague wording, and multi-task requests.",
+  "version": "1.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Aman Kumar",
+    "email": "nameaman2002@gmail.com",
+    "url": "https://github.com/akumar8287"
+  },
+  "homepage": "https://github.com/akumar8287/repository-aware-prompt-optimizer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akumar8287/repository-aware-prompt-optimizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akumar8287/repository-aware-prompt-optimizer/issues"
+  },
+  "keywords": [
+    "claude-code",
+    "prompt-optimizer",
+    "developer-tools",
+    "token-optimization",
+    "repository-aware",
+    "skills",
+    "hinglish",
+    "broken-english",
+    "prompt-engineering",
+    "approval-flow",
+    "token-report",
+    "prompt-preview"
+  ],
+  "categories": [
+    "productivity",
+    "developer-tools",
+    "prompt-engineering"
+  ],
+  "skills": [
+    {
+      "name": "repository-aware-prompt-optimizer",
+      "path": "skills/repository-aware-prompt-optimizer/SKILL.md",
+      "description": "Converts rough developer requests into structured, repository-aware, token-efficient Claude Code prompts.",
+      "triggers": [
+        "optimize prompt",
+        "optimize my prompt",
+        "improve this prompt",
+        "make this prompt better",
+        "convert to claude prompt"
+      ]
+    }
+  ],
+  "engines": {
+    "claude-code": ">=1.0.0"
+  },
+  "installSize": "small",
+  "requiresNetwork": false,
+  "requiresAuth": false
+}
