@@ -1,10 +1,10 @@
 {
   "name": "repository-aware-prompt-optimizer",
   "description": "Converts rough developer requests into structured, repository-aware, token-efficient Claude Code prompts.",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": {
     "name": "Aman Kumar"
   },
   "repository": "https://github.com/akumar8287/repository-aware-prompt-optimizer",
-  "license": "MIT"
+  "license": "Apache-2.0"
 }

@@ -260,4 +260,4 @@ Plugin install:
 claude plugin install github:akumar8287/repository-aware-prompt-optimizer
 ```
 
-License: MIT © 2026 Aman Kumar
+License: Apache-2.0 © 2026 Aman Kumar — https://github.com/akumar8287/repository-aware-prompt-optimizer

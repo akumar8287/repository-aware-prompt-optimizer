@@ -1,0 +1,26 @@
+Repository-Aware Prompt Optimizer
+Copyright 2026 Aman Kumar
+
+This product includes original prompt engineering, Claude Code skill design,
+repository-aware routing documentation, activation flow documentation, and
+token-optimization workflow content created by Aman Kumar.
+
+Licensed under the Apache License, Version 2.0.
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+If you redistribute, fork, modify, or publish derivative versions of this
+work, you must:
+
+  - Retain this NOTICE file in all distributed copies and derivative works.
+  - Retain the copyright notice: Copyright 2026 Aman Kumar.
+  - Retain the LICENSE file and provide attribution to the original author.
+  - Comply with all terms of the Apache License, Version 2.0.
+
+Reuploading or republishing this work without retaining the above attribution
+is not permitted under the license terms and may constitute copyright
+infringement.
+
+Official repository:
+https://github.com/akumar8287/repository-aware-prompt-optimizer

@@ -223,3 +223,11 @@ Summary:
 4. State confidence level: High / Medium / Low using the rules in `references/token-optimization-rules.md`.
 5. Never claim exact token savings. All numbers are estimates prefixed with `~`.
 6. Do not show the report if the task was cancelled.
+
+---
+
+## Attribution
+
+Repository-Aware Prompt Optimizer was created by Aman Kumar.
+
+Official repository: https://github.com/akumar8287/repository-aware-prompt-optimizer

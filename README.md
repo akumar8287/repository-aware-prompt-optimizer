@@ -3,7 +3,7 @@
 > **A Claude Code Plugin that turns rough developer prompts into precise, token-efficient, repository-aware implementation instructions.**
 
 ![Version](https://img.shields.io/badge/version-1.4.0-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-Apache%202.0-blue)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-Plugin-orange)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
 
@@ -473,7 +473,8 @@ repository-aware-prompt-optimizer/
 │
 ├── README.md                          # This file
 ├── CHANGELOG.md                       # Version history
-├── LICENSE                            # MIT
+├── LICENSE                            # Apache 2.0
+├── NOTICE                             # Attribution and copyright notice
 └── install.md                         # Full installation guide
 ```
 
@@ -543,6 +544,18 @@ When contributing:
 
 ---
 
-## License
+## License and Attribution
 
-MIT © 2026 Aman Kumar. See [LICENSE](LICENSE).
+This project is licensed under the **Apache License 2.0**.
+
+- You may use, modify, and distribute it under the license terms.
+- You must retain copyright notices, the LICENSE file, the NOTICE file, and attribution to the original author in all copies and derivative works.
+- Reuploading or redistributing without attribution is not permitted under the license terms.
+
+**Original author:** Aman Kumar
+
+**Official repository:** https://github.com/akumar8287/repository-aware-prompt-optimizer
+
+If you find copied versions without attribution, please report them or open an issue in the official repository.
+
+See [LICENSE](LICENSE) and [NOTICE](NOTICE) for full terms.

@@ -1,0 +1,11 @@
+# All files require review from the original author.
+# No PR merges to main without approval from @akumar8287.
+
+* @akumar8287
+
+# Core skill files — extra protection
+skills/repository-aware-prompt-optimizer/SKILL.md @akumar8287
+.claude-plugin/plugin.json @akumar8287
+.claude-plugin/marketplace.json @akumar8287
+LICENSE @akumar8287
+NOTICE @akumar8287

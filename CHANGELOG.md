@@ -6,6 +6,21 @@ Format: [Semantic Versioning](https://semver.org/). Types: Added, Changed, Fixed
 
 ---
 
+## [1.4.1] — 2026-05-29
+
+### Changed
+- License changed from MIT to **Apache License 2.0** for stronger attribution requirements on redistribution and forks.
+- `plugin.json` license field updated to `Apache-2.0`.
+- `README.md` license badge updated to Apache 2.0.
+
+### Added
+- `NOTICE` file — carries copyright notice, attribution requirements, and redistribution obligations. Required to be retained in all forks and derivative works under Apache 2.0 Section 4(d).
+- **License and Attribution section** in `README.md` — explains redistribution rules, attribution requirements, and how to report copied versions without attribution.
+- Attribution footer in `SKILL.md` — credits original author and links official repository.
+- Apache-2.0 attribution in `skills/README.md`.
+
+---
+
 ## [1.4.0] — 2026-05-29
 
 ### Added
@@ -104,7 +119,7 @@ Format: [Semantic Versioning](https://semver.org/). Types: Added, Changed, Fixed
 - Evaluation checklist with 35+ pass/fail items across 8 quality categories.
 - Root `README.md` with install, usage, and example output.
 - `install.md` covering marketplace, manual global, git clone, and per-project install methods for Windows/macOS/Linux.
-- MIT license.
+- MIT license. *(changed to Apache-2.0 in v1.4.1)*
 
 ---
 
