@@ -104,6 +104,27 @@ Feature Request — Backend/API Change
 
 ---
 
+## Activation Notice (shown before preview)
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Detected a Feature Request (Backend/API Change) from signal words: "add karo", "pagination", "page aur limit query params".
+- Optimization will scope the change to the products route handler and service layer only.
+
+## Trigger Source
+Automatic classification
+
+## Activation Confidence
+High
+
+## Next Step
+I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
+```
+
+---
+
 ## Approval Preview (shown to user before implementation)
 
 ```markdown

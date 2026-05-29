@@ -85,6 +85,53 @@ Preserve the user's intent. Rewrite for clarity. Do not change what they asked f
 
 ---
 
+## Activation Notice
+
+Before showing the optimized prompt preview, always output the Activation Notice. Output it once per optimization cycle — never repeat it during the same cycle.
+
+Full templates are in `references/output-format.md` under **Activation Notice Templates**.
+
+**When to show the Activation Notice:**
+- Skill triggered automatically by classification
+- User manually invokes the skill
+- Compound task detected
+- Unclear request detected (use the Unclear Request variant)
+- Always before the first `y / e / c` prompt in any cycle
+
+**When to show the Updated Notice instead:**
+- User replied `e` or `edit` and the skill is regenerating the prompt
+- The Updated Notice is shorter — do not repeat the full Activation Notice
+
+**Trigger Source — use exactly one:**
+- `Automatic classification`
+- `Manual invocation`
+- `Compound task detection`
+- `Token optimization rule`
+- `Unclear request detection`
+- `Edit regeneration` (Updated Notice only)
+
+**Activation Confidence:**
+
+High — any of:
+- User explicitly invoked the skill
+- Clear rough developer prompt with identifiable task type
+- Clear compound task detected
+- Unclear request detected (high confidence in the classification itself)
+
+Medium — any of:
+- Some context present but task scope needs narrowing
+- Multiple task types plausible, one dominant
+- File or module inferred from context, not stated
+
+Low — any of:
+- Very short or ambiguous prompt
+- No identifiable feature, error, or domain
+- Task type required significant inference
+
+**Do not activate during:** Approval flow waiting state, edit loop waiting state. The notice already showed at the start of the cycle.
+
+---
+
 ## Approval Preview Flow
 
 After generating the optimized prompt, do NOT proceed to implementation. Display the approval preview and wait.

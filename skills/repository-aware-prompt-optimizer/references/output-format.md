@@ -154,6 +154,84 @@ Once you provide these details, I can identify the root cause and fix it with mi
 
 ---
 
+## Activation Notice Templates
+
+### Standard Activation Notice
+
+Output this before every optimized prompt preview. Output it once per optimization cycle.
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- [One or two bullet points explaining why the skill activated — e.g., "Detected a Bug Fix in the authentication layer from signal words: 'expire', 'logout', 'still can access'."]
+
+## Trigger Source
+[One of: Automatic classification / Manual invocation / Compound task detection / Token optimization rule / Unclear request detection]
+
+## Activation Confidence
+[High / Medium / Low]
+
+## Next Step
+I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
+```
+
+---
+
+### Updated Notice (Edit Regeneration)
+
+Output this instead of the full Activation Notice when the user replied `e` or `edit` and the skill is regenerating the prompt.
+
+```markdown
+# Repository-Aware Prompt Optimizer Updated
+
+## Update Reason
+User requested prompt edits.
+
+## Next Step
+Here is the revised optimized prompt preview. No implementation will run until you approve it.
+```
+
+---
+
+### Unclear Request Activation Notice
+
+Output this when the skill detects the request is too vague for safe implementation and will produce a clarification prompt instead.
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Request is too unclear for safe implementation.
+- Clarification is needed to avoid wrong file changes.
+
+## Trigger Source
+Unclear request detection
+
+## Activation Confidence
+High
+
+## Next Step
+I will ask a clarification question instead of generating an implementation task.
+```
+
+---
+
+### Runtime Output Order
+
+Every optimization cycle follows this order:
+
+1. **Activation Notice** (or Updated Notice on edit regeneration)
+2. **Optimized Prompt Preview** (with token table and `y / e / c` prompt)
+3. *(wait for user reply)*
+4. On `y`: implementation runs, then **Post-Task Token Optimization Report**
+5. On `e`: **Updated Notice** → regenerated **Optimized Prompt Preview** → *(wait again)*
+6. On `c`: "Cancelled. Nothing was executed." Stop.
+
+The Activation Notice is never shown more than once in a single optimization cycle.
+
+---
+
 ## Approval Preview Template
 
 Wrap the entire optimized prompt in this preview block. Display it BEFORE executing anything. Do not start implementation until the user confirms.

@@ -168,6 +168,40 @@ When multiple task types seem to apply, use this priority:
 
 ---
 
+## Activation Reason Mapping
+
+Use this table to fill in the **Activation Reason** field of the Activation Notice. Pick the row matching the classified task type. Adjust the second bullet if the user provided additional context clues.
+
+| Task Type | Activation Reason bullets |
+|---|---|
+| Bug Fix | "Detected a Bug Fix from signal words: [quoted signals]." / "Investigation will target the [domain] layer first." |
+| Feature Request | "Detected a Feature Request from signal words: [quoted signals]." / "Optimization will scope the addition to the [domain] module." |
+| UI / Frontend | "Detected a UI/Frontend change from signal words: [quoted signals]." / "Investigation will target frontend components and data-fetch hooks." |
+| Backend / API | "Detected a Backend/API change from signal words: [quoted signals]." / "Optimization will scope changes to the route handler and service layer." |
+| Database / Schema | "Detected a Database/Schema change from signal words: [quoted signals]." / "Investigation will target the model definition and migration files." |
+| Migration | "Detected a Migration task from signal words: [quoted signals]." / "Optimization will provide exact grep targets for deprecated API calls." |
+| Refactor | "Detected a Refactor task from signal words: [quoted signals]." / "Optimization will enforce behavior-preservation constraints." |
+| Deployment / Config | "Detected a Deployment/Config issue from signal words: [quoted signals]." / "Investigation will start from config and environment files." |
+| Unclear Request | "Request is too unclear for safe implementation." / "Clarification is needed to avoid wrong file changes." |
+| Compound Task | "Multiple independent tasks detected in one request." / "Splitting into [N] separate optimized prompts to prevent merge conflicts." |
+
+**Activation Confidence by classification result:**
+
+| Classification result | Confidence |
+|---|---|
+| Strong signal words present, single task type | High |
+| Explicit user invocation of skill | High |
+| Clear compound task (2–3 distinct requests) | High |
+| Unclear request (high confidence in the "unclear" classification) | High |
+| Task type inferred from domain hints, no explicit error/feature word | Medium |
+| Two task types plausible, one dominant | Medium |
+| File or module inferred, not stated by user | Medium |
+| One-word or two-word prompt, no error or domain | Low |
+| No feature, error, or context present | Low |
+| Task type required significant inference from very sparse input | Low |
+
+---
+
 ## Compound Tasks
 
 If a request spans two types (e.g., "add dark mode AND fix login bug"), split them into two separate optimized prompts. Label them clearly:

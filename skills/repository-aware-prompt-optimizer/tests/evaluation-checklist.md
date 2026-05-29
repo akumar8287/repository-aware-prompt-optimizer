@@ -143,6 +143,20 @@ If any answer is "no", improve those sections before using the prompt.
 
 ---
 
+## Section 11: Activation Notice
+
+- [ ] **Activation Notice appears before optimized preview.** The `# Repository-Aware Prompt Optimizer Activated` block is shown before the `# Optimized Prompt Preview` block.
+- [ ] **Activation Reason is present.** At least one bullet explains why the skill activated, referencing the signal words or detection logic used.
+- [ ] **Trigger Source is present.** Exactly one of: `Automatic classification`, `Manual invocation`, `Compound task detection`, `Token optimization rule`, `Unclear request detection`.
+- [ ] **Activation Confidence is present.** Exactly one of: `High`, `Medium`, `Low` — not a range or "unknown."
+- [ ] **Next Step is present.** States that no implementation runs until the user approves.
+- [ ] **No implementation during activation notice.** The skill does not read files, write code, or make changes while outputting the activation notice.
+- [ ] **Activation Notice is not duplicated.** The full notice appears exactly once per optimization cycle — not before both the initial preview and the edit-regenerated preview.
+- [ ] **Edit regeneration uses Updated Notice.** When the user replies `e` or `edit` and the skill regenerates the prompt, the output begins with `# Repository-Aware Prompt Optimizer Updated`, not the full activation notice.
+- [ ] **Unclear request uses Clarification activation notice.** When the task type is Unclear, the activation notice uses the Unclear Request variant: Activation Reason = "Request is too unclear for safe implementation", Trigger Source = `Unclear request detection`, Confidence = `High`, Next Step = clarification question.
+
+---
+
 ## Combined Scoring
 
 | Score | Meaning |

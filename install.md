@@ -117,7 +117,23 @@ After any install method, open Claude Code and run:
 Use the repository-aware-prompt-optimizer skill. Optimize this prompt: fix login bug
 ```
 
-If you receive a structured optimized prompt followed by the Approval Preview block (with `y` / `e` / `c` options), the install succeeded.
+If the install succeeded, you will first see `# Repository-Aware Prompt Optimizer Activated` with an Activation Reason, Trigger Source, and Activation Confidence — then the Approval Preview block with `y` / `e` / `c` options.
+
+---
+
+## Activation Notice
+
+Before every optimized prompt preview, the skill outputs an Activation Notice:
+
+```
+# Repository-Aware Prompt Optimizer Activated
+## Activation Reason — why the skill triggered
+## Trigger Source — what caused activation
+## Activation Confidence — High / Medium / Low
+## Next Step — no implementation runs until you approve
+```
+
+No code is executed during or after this notice. Implementation only starts after an explicit `y` reply.
 
 ---
 

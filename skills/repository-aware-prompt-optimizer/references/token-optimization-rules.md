@@ -215,6 +215,23 @@ Use these rules to assign the confidence level in the Post-Task Token Optimizati
 
 ---
 
+## Activation Notice and Token Saving
+
+When `Trigger Source` is `Token optimization rule`, the Activation Reason must explain the specific token-saving concern that triggered optimization.
+
+**Activation Reason examples for token-triggered activations:**
+
+| Scenario | Activation Reason bullets |
+|---|---|
+| Prompt would cause broad repo scan | "Detected broad scan risk — request references the whole codebase with no specific file or module." / "Optimization will add targeted file investigation to prevent reading unrelated files." |
+| No grep-first strategy | "Detected speculative file reads — request has no grep or search step, risking full-module reads." / "Optimization will add search-before-read constraints." |
+| Large file risk | "Detected risk of opening large orchestration files (e.g., index.ts, app.ts) first." / "Optimization will route investigation directly to the handler or service layer." |
+| Multi-module ambiguity | "Detected ambiguous scope spanning multiple modules." / "Optimization will narrow investigation to the most likely domain." |
+
+**Rule:** Never skip the Activation Notice when token optimization is the trigger. The notice communicates that the optimization has a specific cost-saving purpose, which builds user trust in the delay before implementation.
+
+---
+
 ## Rules Against Exact Savings Claims
 
 These statements are prohibited in any skill output:

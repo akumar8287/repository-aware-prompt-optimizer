@@ -119,6 +119,27 @@ Migration — Dependency Upgrade
 
 ---
 
+## Activation Notice (shown before preview)
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Detected a Migration task from signal words: "upgrade karna hai", "v5 se v7", "deprecated cheezein".
+- Optimization will provide exact grep targets for deprecated Mongoose API calls to prevent broad file reads.
+
+## Trigger Source
+Automatic classification
+
+## Activation Confidence
+High
+
+## Next Step
+I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
+```
+
+---
+
 ## Approval Preview (shown to user before implementation)
 
 ```markdown
@@ -156,6 +177,18 @@ Reply with one of:
 **Skill asks:** "What would you like to change in the optimized prompt?"
 
 **User replies:** "Also include `.findOneAndRemove` and `.findByIdAndRemove` in the grep targets — we use those too."
+
+**Skill outputs Updated Notice then regenerated preview:**
+
+```markdown
+# Repository-Aware Prompt Optimizer Updated
+
+## Update Reason
+User requested prompt edits.
+
+## Next Step
+Here is the revised optimized prompt preview. No implementation will run until you approve it.
+```
 
 **Skill updates:** Adds those methods to Investigation Order step 3 and the When To Expand Search section. Regenerates the full preview with updated token count (~360 tokens). Asks for `y`, `e`, or `c` again.
 

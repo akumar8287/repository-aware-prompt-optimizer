@@ -2,7 +2,7 @@
 
 > **A Claude Code Plugin that turns rough developer prompts into precise, token-efficient, repository-aware implementation instructions.**
 
-![Version](https://img.shields.io/badge/version-1.1.0-blue)
+![Version](https://img.shields.io/badge/version-1.3.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-Plugin-orange)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
@@ -67,6 +67,7 @@ See [install.md](install.md) for manual and per-project install options.
 
 ## Table of Contents
 
+- [Activation Notice](#activation-notice)
 - [How It Works](#how-it-works)
 - [Approval Preview Flow](#approval-preview-flow)
 - [Edit Before Execution](#edit-before-execution)
@@ -76,6 +77,48 @@ See [install.md](install.md) for manual and per-project install options.
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
 - [Update & Uninstall](#update--uninstall)
+
+---
+
+## Activation Notice
+
+When the optimizer activates, you will see a clear header before any prompt preview:
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Detected a Bug Fix in the authentication layer from signal words: "expire", "still can access".
+- Investigation will target the JWT middleware and route guard first.
+
+## Trigger Source
+Automatic classification
+
+## Activation Confidence
+High
+
+## Next Step
+I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
+```
+
+This notice tells you:
+- **Why** the skill activated (which signal words or detection rule triggered it)
+- **How confident** the classification is (High / Medium / Low)
+- **What happens next** (preview only — no code runs yet)
+
+When you reply `e` to edit the prompt and it regenerates, you see a shorter notice:
+
+```markdown
+# Repository-Aware Prompt Optimizer Updated
+
+## Update Reason
+User requested prompt edits.
+
+## Next Step
+Here is the revised optimized prompt preview. No implementation will run until you approve it.
+```
+
+Nothing executes during or after the activation notice. Implementation only starts after an explicit `y`.
 
 ---
 

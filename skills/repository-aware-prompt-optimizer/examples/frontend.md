@@ -104,6 +104,27 @@ UI/Frontend Change — Loading State
 
 ---
 
+## Activation Notice (shown before preview)
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Detected a UI/Frontend Change from signal words: "spinner lagao", "data fetch ho raha ho", "blank screen aata hai".
+- Optimization will check for an existing Spinner component before creating a new one, avoiding a duplicate component or unnecessary library install.
+
+## Trigger Source
+Automatic classification
+
+## Activation Confidence
+High
+
+## Next Step
+I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
+```
+
+---
+
 ## Approval Preview (shown to user before implementation)
 
 ```markdown

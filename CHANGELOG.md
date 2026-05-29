@@ -6,6 +6,29 @@ Format: [Semantic Versioning](https://semver.org/). Types: Added, Changed, Fixed
 
 ---
 
+## [1.3.0] — 2026-05-29
+
+### Added
+- **Activation Notice** — skill now outputs `# Repository-Aware Prompt Optimizer Activated` before every optimized prompt preview. Shows Activation Reason, Trigger Source, and Activation Confidence.
+- **Trigger Source display** — one of: `Automatic classification`, `Manual invocation`, `Compound task detection`, `Token optimization rule`, `Unclear request detection`.
+- **Activation Confidence display** — `High`, `Medium`, or `Low` with rules per classification result.
+- **Edit regeneration Updated Notice** — on `e` / `edit`, skill shows `# Repository-Aware Prompt Optimizer Updated` (shorter notice) instead of repeating the full Activation Notice.
+- **Unclear request activation notice** — when request is too vague, skill shows the Unclear Request variant of the Activation Notice before the clarification prompt.
+- Activation Notice templates added to `references/output-format.md`: Standard, Updated (edit regeneration), Unclear Request variant, and Runtime Output Order.
+- Activation Reason Mapping table added to `references/task-classification.md`: maps each task type to activation reason bullets and confidence level.
+- Token optimization activation reasons added to `references/token-optimization-rules.md`: specific activation reason examples for token-triggered activations.
+- Section 11 added to `tests/evaluation-checklist.md` (9 checklist items for activation notice behavior).
+- All 5 example files updated to include Activation Notice before the Approval Preview block.
+- Migration example updated to show Updated Notice on edit regeneration.
+- Unclear prompts example updated with Unclear Request activation notices for all 3 sub-examples.
+- `README.md` updated with "Activation Notice" section and table of contents entry.
+- `install.md` updated with Activation Notice usage note and verification instruction.
+
+### Changed
+- README version badge updated to `1.3.0`.
+
+---
+
 ## [1.1.0] — 2026-05-29
 
 ### Added

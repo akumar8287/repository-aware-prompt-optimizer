@@ -100,6 +100,27 @@ Bug Fix — Authentication
 
 ---
 
+## Activation Notice (shown before preview)
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Detected a Bug Fix in the authentication layer from signal words: "expire ho raha hai", "still can access", "dashboard".
+- Investigation will target the JWT middleware and route guard first to avoid scanning unrelated modules.
+
+## Trigger Source
+Automatic classification
+
+## Activation Confidence
+High
+
+## Next Step
+I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
+```
+
+---
+
 ## Approval Preview (shown to user before implementation)
 
 ```markdown

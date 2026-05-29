@@ -16,6 +16,25 @@ kuch sahi nahi hai, dekh lena
 
 **Unclear Request** — No feature, no error, no file, no behavior described.
 
+### Activation Notice
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Request is too unclear for safe implementation.
+- Clarification is needed to avoid wrong file changes.
+
+## Trigger Source
+Unclear request detection
+
+## Activation Confidence
+High
+
+## Next Step
+I will ask a clarification question instead of generating an implementation task.
+```
+
 ### Output: Clarification Prompt
 
 ```markdown
@@ -59,6 +78,25 @@ aur ek export CSV button bhi chahiye reports mein
 3. Feature Request — Export CSV button in reports
 
 **Action:** Split into three separate optimized prompts. Do not merge them.
+
+### Activation Notice
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Multiple independent tasks detected in one request.
+- Splitting into 3 separate optimized prompts to prevent merge conflicts and enable safe, sequential implementation.
+
+## Trigger Source
+Compound task detection
+
+## Activation Confidence
+High
+
+## Next Step
+I will generate 3 separate optimized Claude Code prompt previews. No implementation will run until you approve.
+```
 
 ### Output: Split Prompts
 
@@ -163,6 +201,25 @@ Detection signals:
 - No error message, no specific behavior described
 
 **Action:** Generate a focused clarification prompt for the payment domain — not a fully generic one.
+
+### Activation Notice
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Request is too unclear for safe implementation.
+- Domain is identifiable (payment feature) but behavior, error, and scope are unknown — clarification is needed to avoid wrong file changes.
+
+## Trigger Source
+Unclear request detection
+
+## Activation Confidence
+High
+
+## Next Step
+I will ask a domain-specific clarification question instead of generating an implementation task.
+```
 
 ### Output: Domain-Specific Clarification Prompt
 
