@@ -45,6 +45,7 @@
       "skills": [
         {
           "name": "repository-aware-prompt-optimizer",
+          "path": "skills/repository-aware-prompt-optimizer/SKILL.md",
           "summary": "Classifies developer requests into 9 task types, rewrites them into structured Claude Code prompts with targeted file investigation, token-saving constraints, and verification steps. Includes approval preview flow (y/e/c), edit-before-execution loop, and post-task token optimization report.",
           "supportedTaskTypes": [
             "bug-fix",
