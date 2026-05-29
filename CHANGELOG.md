@@ -25,6 +25,10 @@ Format: [Semantic Versioning](https://semver.org/). Types: Added, Changed, Fixed
 - **"How Activation Works" section** added to root `README.md`: explains automatic vs. manual activation, trigger phrases, fallback pattern.
 - **Activation troubleshooting section** added to `install.md`: covers automatic activation not firing, manual invocation fallback, and expected auto-activation conditions.
 
+### Added (continued)
+- **Root `CLAUDE.md`** — ships with plugin. If Claude Code loads CLAUDE.md from plugin directories, this auto-injects the prompt optimization rule for all installed users without manual setup.
+- **Step 0 in `install.md`** — one-command setup for macOS/Linux (bash heredoc) and Windows (PowerShell) that appends the prompt optimization rule to the user's global `~/.claude/CLAUDE.md`. Reliable automatic activation for any user who runs it once after install.
+
 ### Changed
 - `SKILL.md` frontmatter description updated to be trigger-friendly — includes natural language phrases for rough/Hinglish prompts, token optimization, and compound tasks.
 - `plugin.json` version bumped to `1.4.0`.

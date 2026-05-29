@@ -1,5 +1,31 @@
 # Installation Guide
 
+## Step 0 — Enable Automatic Activation (Recommended)
+
+After installing the plugin, run this once to enable automatic activation for rough/Hinglish prompts.
+
+**macOS / Linux:**
+```bash
+cat >> ~/.claude/CLAUDE.md << 'EOF'
+
+## Prompt Optimization Rule
+
+Before implementing ANY developer request that is rough, vague, short, Hinglish, broken-English, missing file scope, compound, or token-optimization intent — invoke the `repository-aware-prompt-optimizer` skill FIRST. Do NOT read files or write code until the user approves the optimized prompt with `y`. Skip only if the user provided exact files, exact behavior, and exact constraints.
+EOF
+```
+
+**Windows (PowerShell):**
+```powershell
+$rule = "`n## Prompt Optimization Rule`n`nBefore implementing ANY developer request that is rough, vague, short, Hinglish, broken-English, missing file scope, compound, or token-optimization intent — invoke the ``repository-aware-prompt-optimizer`` skill FIRST. Do NOT read files or write code until the user approves the optimized prompt with ``y``. Skip only if the user provided exact files, exact behavior, and exact constraints."
+Add-Content "$env:USERPROFILE\.claude\CLAUDE.md" $rule
+```
+
+Then **restart Claude Code**. After restart, prompts like `"login nahi ho raha"` or `"fix this"` will automatically route through the optimizer before any file reads.
+
+> If you skip this step, automatic activation is best-effort. Use manual invocation as fallback: `use repository-aware-prompt-optimizer: [your prompt]`
+
+---
+
 ## Option 1 — Marketplace Install (Recommended)
 
 If Claude Code supports GitHub-based plugin installation:
