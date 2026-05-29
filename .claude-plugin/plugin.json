@@ -1,43 +1,10 @@
 {
   "name": "repository-aware-prompt-optimizer",
-  "displayName": "Repository-Aware Prompt Optimizer",
-  "description": "Converts rough developer requests into structured, repository-aware, token-efficient Claude Code prompts. Supports broken English, Hinglish, vague wording, and multi-task requests.",
+  "description": "Converts rough developer requests into structured, repository-aware, token-efficient Claude Code prompts.",
   "version": "1.2.0",
-  "license": "MIT",
   "author": {
-    "name": "Aman Kumar",
-    "email": "nameaman2002@gmail.com",
-    "url": "https://github.com/akumar8287"
+    "name": "Aman Kumar"
   },
-  "homepage": "https://github.com/akumar8287/repository-aware-prompt-optimizer",
-  "repository": "https://github.com/akumar8287/repository-aware-prompt-optimizer.git",
-  "bugs": {
-    "url": "https://github.com/akumar8287/repository-aware-prompt-optimizer/issues"
-  },
-  "keywords": [
-    "claude-code",
-    "prompt-optimizer",
-    "developer-tools",
-    "token-optimization",
-    "repository-aware",
-    "skills",
-    "hinglish",
-    "broken-english",
-    "prompt-engineering",
-    "approval-flow",
-    "token-report",
-    "prompt-preview"
-  ],
-  "categories": [
-    "productivity",
-    "developer-tools",
-    "prompt-engineering"
-  ],
-  "skills": "./skills/",
-  "engines": {
-    "claude-code": ">=1.0.0"
-  },
-  "installSize": "small",
-  "requiresNetwork": false,
-  "requiresAuth": false
+  "repository": "https://github.com/akumar8287/repository-aware-prompt-optimizer",
+  "license": "MIT"
 }
