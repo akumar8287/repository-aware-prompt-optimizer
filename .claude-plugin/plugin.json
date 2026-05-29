@@ -33,20 +33,7 @@
     "developer-tools",
     "prompt-engineering"
   ],
-  "skills": [
-    {
-      "name": "repository-aware-prompt-optimizer",
-      "path": "skills/repository-aware-prompt-optimizer/SKILL.md",
-      "description": "Converts rough developer requests into structured, repository-aware, token-efficient Claude Code prompts.",
-      "triggers": [
-        "optimize prompt",
-        "optimize my prompt",
-        "improve this prompt",
-        "make this prompt better",
-        "convert to claude prompt"
-      ]
-    }
-  ],
+  "skills": "./skills/",
   "engines": {
     "claude-code": ">=1.0.0"
   },
