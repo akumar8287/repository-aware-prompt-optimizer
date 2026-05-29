@@ -2,7 +2,7 @@
   "name": "repository-aware-prompt-optimizer",
   "displayName": "Repository-Aware Prompt Optimizer",
   "description": "Converts rough developer requests into structured, repository-aware, token-efficient Claude Code prompts. Supports broken English, Hinglish, vague wording, and multi-task requests.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "author": {
     "name": "Aman Kumar",
@@ -10,10 +10,7 @@
     "url": "https://github.com/akumar8287"
   },
   "homepage": "https://github.com/akumar8287/repository-aware-prompt-optimizer",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/akumar8287/repository-aware-prompt-optimizer.git"
-  },
+  "repository": "https://github.com/akumar8287/repository-aware-prompt-optimizer.git",
   "bugs": {
     "url": "https://github.com/akumar8287/repository-aware-prompt-optimizer/issues"
   },

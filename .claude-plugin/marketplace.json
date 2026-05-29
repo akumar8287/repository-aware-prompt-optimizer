@@ -1,87 +1,20 @@
 {
-  "schemaVersion": "1.0",
-  "plugin": {
-    "name": "repository-aware-prompt-optimizer",
-    "displayName": "Repository-Aware Prompt Optimizer",
-    "description": "Converts rough developer requests — including broken English, Hinglish, vague wording, and multi-task messages — into structured, token-efficient, repository-aware Claude Code prompts. Features an approval preview flow (y/e/c confirmation before execution), an edit loop for refining the optimized prompt, and a post-task token optimization report with estimated search scope metrics.",
-    "shortDescription": "Turn rough dev requests into precise, token-efficient Claude Code prompts with approval preview and token reports.",
-    "version": "1.1.0",
-    "license": "MIT",
-    "author": "Aman Kumar",
-    "source": {
-      "type": "github",
-      "repository": "akumar8287/repository-aware-prompt-optimizer",
-      "url": "https://github.com/akumar8287/repository-aware-prompt-optimizer",
-      "branch": "main",
-      "pluginManifest": ".claude-plugin/plugin.json"
-    },
-    "install": {
-      "command": "claude plugin install github:akumar8287/repository-aware-prompt-optimizer",
-      "manual": {
-        "global": {
-          "windows": "%APPDATA%\\Claude\\plugins\\",
-          "macos": "~/.claude/plugins/",
-          "linux": "~/.claude/plugins/"
-        }
-      }
-    },
-    "tags": [
-      "prompt-engineering",
-      "token-optimization",
-      "developer-tools",
-      "productivity",
-      "repository-aware",
-      "hinglish",
-      "prompt-optimizer",
-      "approval-flow",
-      "token-report",
-      "prompt-preview"
-    ],
-    "categories": [
-      "productivity",
-      "developer-tools"
-    ],
-    "capabilities": {
-      "skills": [
-        {
-          "name": "repository-aware-prompt-optimizer",
-          "path": "skills/repository-aware-prompt-optimizer/SKILL.md",
-          "summary": "Classifies developer requests into 9 task types, rewrites them into structured Claude Code prompts with targeted file investigation, token-saving constraints, and verification steps. Includes approval preview flow (y/e/c), edit-before-execution loop, and post-task token optimization report.",
-          "supportedTaskTypes": [
-            "bug-fix",
-            "feature-request",
-            "ui-frontend",
-            "backend-api",
-            "database-schema",
-            "migration",
-            "refactor",
-            "deployment-config",
-            "unclear-request"
-          ],
-          "supportsHinglish": true,
-          "supportsBrokenEnglish": true,
-          "outputFormat": "structured-markdown",
-          "tokenSavingsEstimate": "40-70%",
-          "approvalPreviewFlow": true,
-          "editBeforeExecution": true,
-          "postTaskTokenReport": true,
-          "tokenEstimationMethod": "1 token per 3.5 characters (mixed developer text)"
-        }
-      ]
-    },
-    "stats": {
-      "filesIncluded": 12,
-      "examplesIncluded": 5,
-      "referenceDocs": 4,
-      "evaluationChecklist": true,
-      "checklistItems": 47
-    },
-    "compatibility": {
-      "claudeCodeMinVersion": "1.0.0",
-      "testedOn": ["win32", "darwin", "linux"]
-    },
-    "changelog": "https://github.com/akumar8287/repository-aware-prompt-optimizer/blob/main/CHANGELOG.md",
-    "issues": "https://github.com/akumar8287/repository-aware-prompt-optimizer/issues",
-    "homepage": "https://github.com/akumar8287/repository-aware-prompt-optimizer"
-  }
+  "name": "repository-aware-prompt-optimizer-marketplace",
+  "owner": {
+    "name": "Aman Kumar",
+    "email": "nameaman2002@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "repository-aware-prompt-optimizer",
+      "source": "./",
+      "description": "Converts rough developer requests into structured, repository-aware, token-efficient Claude Code prompts.",
+      "version": "1.2.0",
+      "author": {
+        "name": "Aman Kumar"
+      },
+      "category": "productivity",
+      "homepage": "https://github.com/akumar8287/repository-aware-prompt-optimizer"
+    }
+  ]
 }
