@@ -202,6 +202,51 @@ Use this table to fill in the **Activation Reason** field of the Activation Noti
 
 ---
 
+## Hybrid Activation Mapping
+
+Use this table to decide whether a classified prompt should auto-activate, require manual invocation, or skip optimization.
+
+| Condition | Activation Mode | Reason |
+|---|---|---|
+| Hinglish prompt with any dev signal | **Auto** | Vague by nature; broad scan risk |
+| One-to-three word dev prompt | **Auto** | No file scope; Claude will scan broadly |
+| Bug Fix with no file or error mentioned | **Auto** | Investigation scope unknown |
+| Feature Request with no file or module | **Auto** | Broad scan risk |
+| UI/Frontend with no component name | **Auto** | Will open many component files |
+| Backend/API with no route or controller | **Auto** | Will scan all routes |
+| Deployment/Config issue (any) | **Auto** | Build issues require targeted env/config scan |
+| Database/Schema change (any) | **Auto** | Schema changes are high-risk |
+| Compound task (2+ requests in one) | **Auto** | Must split before executing |
+| Token optimization intent ("optimize prompt") | **Auto** | Explicit optimization request |
+| Unclear Request | **Auto** | Must produce clarification prompt |
+| Bug Fix with exact file + error message | **Manual or skip** | Already scoped — optimizer is optional |
+| Feature Request with exact file + spec | **Manual or skip** | Already scoped — optimizer is optional |
+| General explanation only ("explain X") | **Skip** | No implementation; optimization not useful |
+| Non-development question | **Skip** | Out of scope entirely |
+| Exact-file prompt with full constraints | **Skip** | User has already done the optimization |
+
+### Hinglish and Broken-English Auto-Activation Examples
+
+These always auto-activate because they carry dev intent but no file or module scope:
+
+| User Input | Task Type | Activation |
+|---|---|---|
+| "login nahi ho raha yaar" | Bug Fix — Auth | Auto |
+| "dashboard open nahi ho raha" | Bug Fix — UI/Frontend | Auto |
+| "button pe click karne se kuch nahi hota" | Bug Fix — UI/Frontend | Auto |
+| "api late response de raha hai" | Bug Fix — Performance | Auto |
+| "kuch sahi nahi hai" | Unclear Request | Auto → clarification |
+| "project error fix karo" | Bug Fix (scope unknown) | Auto |
+| "backend issue check karo" | Bug Fix — Backend | Auto |
+| "login fix karo aur dashboard responsive bhi karo" | Compound Task | Auto → split |
+| "docker error" | Deployment/Config | Auto |
+| "make responsive" | UI/Frontend | Auto |
+| "add payment" | Feature Request | Auto |
+| "fix login" | Bug Fix — Auth | Auto |
+| "optimize this prompt" | Token optimization | Auto |
+
+---
+
 ## Compound Tasks
 
 If a request spans two types (e.g., "add dark mode AND fix login bug"), split them into two separate optimized prompts. Label them clearly:

@@ -2,7 +2,7 @@
 
 > **A Claude Code Plugin that turns rough developer prompts into precise, token-efficient, repository-aware implementation instructions.**
 
-![Version](https://img.shields.io/badge/version-1.3.0-blue)
+![Version](https://img.shields.io/badge/version-1.4.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-Plugin-orange)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
@@ -67,6 +67,7 @@ See [install.md](install.md) for manual and per-project install options.
 
 ## Table of Contents
 
+- [How Activation Works](#how-activation-works)
 - [Activation Notice](#activation-notice)
 - [How It Works](#how-it-works)
 - [Approval Preview Flow](#approval-preview-flow)
@@ -77,6 +78,78 @@ See [install.md](install.md) for manual and per-project install options.
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
 - [Update & Uninstall](#update--uninstall)
+
+---
+
+## How Activation Works
+
+The optimizer supports two activation modes: **automatic** and **manual**.
+
+### Automatic Activation (best-effort)
+
+Claude Code skill matching activates the optimizer automatically when a prompt looks rough, vague, short, Hinglish, or risky. No explicit invocation needed.
+
+**Prompts that auto-activate:**
+
+```
+login nahi ho raha yaar
+```
+```
+dashboard open nahi ho raha
+```
+```
+fix this
+```
+```
+make responsive
+```
+```
+docker error
+```
+```
+api slow hai
+```
+```
+add payment
+```
+```
+login fix karo aur dashboard responsive bhi karo
+```
+
+These trigger automatic classification because they lack file scope, implementation detail, or contain Hinglish signals that map to developer intent without specifying where to look.
+
+> **Important:** Automatic activation is best-effort. Claude Code's skill matching determines whether the optimizer fires. It is not guaranteed for every rough prompt.
+
+### Manual Activation (guaranteed)
+
+Use explicit invocation when automatic activation does not fire:
+
+```
+use repository-aware-prompt-optimizer: login nahi ho raha yaar
+```
+
+Other guaranteed trigger phrases:
+- `@repository-aware-prompt-optimizer [your prompt]`
+- `optimize this prompt: [your prompt]`
+- `make this Claude Code prompt better: [your prompt]`
+- `improve my coding prompt: [your prompt]`
+
+### Do NOT Activate For
+
+The optimizer should not activate for:
+- Already-scoped prompts with exact files and constraints
+- General explanation requests ("What is Docker?", "Explain REST API.")
+- Non-development questions
+
+### Fallback Pattern
+
+If automatic activation does not occur, use this pattern:
+
+```
+use repository-aware-prompt-optimizer: login nahi ho raha yaar
+```
+
+This guarantees activation regardless of Claude Code's skill matching behavior.
 
 ---
 

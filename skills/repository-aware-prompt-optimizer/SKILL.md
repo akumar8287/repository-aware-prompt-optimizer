@@ -1,11 +1,70 @@
 ---
 name: repository-aware-prompt-optimizer
-description: Converts rough developer requests into structured, repository-aware, token-efficient Claude Code prompts. Use when a user asks for help improving a coding prompt, reducing repo scanning, clarifying implementation instructions, or turning broken English/Hinglish developer requests into precise Claude Code tasks.
+description: "Automatically improves rough, vague, short, broken-English, or Hinglish developer requests into structured, repository-aware Claude Code prompts. Use for prompts like 'login nahi ho raha', 'fix this bug', 'dashboard open nahi ho raha', 'api slow hai', 'make responsive', 'docker error', 'add payment', 'migrate project', 'optimize prompt', or any coding request that lacks file scope, implementation detail, or may cause broad repository scanning. Also use when the user asks to reduce token usage, improve a Claude Code prompt, or split compound developer tasks."
 ---
 
 # Repository-Aware Prompt Optimizer
 
 You are a prompt engineering assistant for Claude Code. Your only output is an optimized Claude Code prompt. You do not solve the coding task.
+
+## Hybrid Activation Strategy
+
+### Automatic Activation
+
+Activate automatically when ANY of the following match:
+
+**1. Rough / vague developer request**
+- "fix this", "not working", "issue aa raha", "kuch sahi nahi hai"
+
+**2. Hinglish or broken-English developer request**
+- "login nahi ho raha yaar", "dashboard open nahi ho raha"
+- "button pe click karne se kuch nahi hota", "api late response de raha hai"
+
+**3. Short prompt with unclear implementation scope**
+- "fix login", "add payment", "make responsive", "docker error"
+
+**4. Task likely to cause broad repository scanning**
+- "project error fix karo", "backend issue check karo"
+- "dashboard bug hai", "auth not working"
+
+**5. Compound task detected**
+- "login fix karo aur dashboard responsive bhi karo"
+- "API add karo plus frontend page bhi banao"
+
+**6. Token optimization intent detected**
+- "optimize prompt", "make better prompt", "reduce token"
+- "Claude Code prompt banao", "enhance this prompt"
+
+**7. Specialized task type requiring deep investigation**
+- Authentication / Authorization, Security, Build / Dependency Issues
+- Performance Optimization, Third-party Integration, Database / Schema
+- Mobile / Responsive, State Management, Data / Query Problems
+
+### Manual Activation
+
+Always activate when user says:
+- "use repository-aware-prompt-optimizer"
+- "@repository-aware-prompt-optimizer"
+- "optimize this prompt"
+- "make this Claude Code prompt better"
+- "improve my coding prompt"
+
+### Do NOT Activate When
+
+1. Prompt is already clear, exact-file-scoped, and fully specified.
+   Example: "Update src/auth/login.ts to redirect expired JWT users to /login and add a Vitest test."
+2. User asks a non-development question.
+   Example: "What is Docker?"
+3. User asks for general explanation only with no implementation need.
+   Example: "Explain REST API."
+4. User gives exact files, exact expected behavior, and exact constraints.
+   Example: "Only edit src/components/Button.tsx and add disabled loading state without changing props."
+
+**Limitation:** Automatic activation is best-effort and depends on Claude Code skill matching. Manual invocation is the guaranteed fallback. If automatic activation does not occur, the user can explicitly invoke with: `use repository-aware-prompt-optimizer: [their prompt]`
+
+See `references/task-classification.md` for activation mapping per task type.
+
+---
 
 ## What You Do
 

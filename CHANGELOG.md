@@ -6,6 +6,33 @@ Format: [Semantic Versioning](https://semver.org/). Types: Added, Changed, Fixed
 
 ---
 
+## [1.4.0] — 2026-05-29
+
+### Added
+- **Hybrid Activation Strategy** — optimizer now activates automatically for rough, vague, short, broken-English, and Hinglish developer prompts. No explicit skill invocation required.
+- **Auto-activation conditions** — 7 condition categories documented in `SKILL.md`: rough/vague requests, Hinglish/broken-English, short unscoped prompts, broad-scan-risk prompts, compound tasks, token optimization intent, specialized task types.
+- **Do-not-activate guidance** — documented in `SKILL.md` and `examples/unclear-prompts.md`: already-scoped prompts, non-development questions, and exact-file-with-constraints prompts must not trigger the optimizer.
+- **Hinglish auto-activation examples** in `references/task-classification.md`: 13-row table mapping Hinglish inputs to task types and activation modes.
+- **Activation mapping table** in `references/task-classification.md`: per-task-type decision for auto vs. manual vs. skip activation.
+- **Trigger Source — When to Use Each** table in `references/output-format.md`: clarifies which `Trigger Source` to use for each activation scenario.
+- **Auto-activation Activation Notice examples** in `references/output-format.md`: "login nahi ho raha yaar", "make responsive", "docker error", compound task examples with correct Trigger Source and Confidence.
+- **Broad-repo-scan risk activation rules** in `references/token-optimization-rules.md`: explains why vague prompts cause speculative file reads, and how the optimizer prevents it.
+- **Scan risk activation reason template** in `references/token-optimization-rules.md` for `Token optimization rule` trigger source.
+- **Section 12 (Hybrid Activation)** in `tests/evaluation-checklist.md`: 18 test cases covering auto-activation, token-rule activation, manual invocation, and do-not-activate scenarios.
+- **Auto-activation header notes** added to `examples/bug-fix.md`, `examples/frontend.md`, `examples/backend.md`, and `examples/unclear-prompts.md`.
+- **Example 4 (short vague prompt)** added to `examples/unclear-prompts.md`: "fix this" → auto-activate → clarification prompt.
+- **Do-not-activate examples table** added to `examples/unclear-prompts.md`.
+- **"How Activation Works" section** added to root `README.md`: explains automatic vs. manual activation, trigger phrases, fallback pattern.
+- **Activation troubleshooting section** added to `install.md`: covers automatic activation not firing, manual invocation fallback, and expected auto-activation conditions.
+
+### Changed
+- `SKILL.md` frontmatter description updated to be trigger-friendly — includes natural language phrases for rough/Hinglish prompts, token optimization, and compound tasks.
+- `plugin.json` version bumped to `1.4.0`.
+- `marketplace.json` version bumped to `1.4.0`.
+- `README.md` version badge updated to `1.4.0`.
+
+---
+
 ## [1.3.0] — 2026-05-29
 
 ### Added

@@ -175,6 +175,53 @@ Reply with: y (proceed) / e (edit) / c (cancel)
 
 ---
 
+## Activation Troubleshooting
+
+### Automatic activation does not happen
+
+Automatic activation depends on Claude Code skill matching. It is best-effort — not every rough prompt will trigger the optimizer automatically.
+
+**If automatic activation does not fire:**
+
+Use manual invocation instead:
+
+```
+use repository-aware-prompt-optimizer: login nahi ho raha yaar
+```
+
+Other guaranteed trigger phrases:
+
+```
+@repository-aware-prompt-optimizer fix this bug
+optimize this prompt: dashboard open nahi ho raha
+make this Claude Code prompt better: docker error
+```
+
+### When to use manual invocation
+
+- Rough prompt typed naturally but optimizer did not activate
+- Hinglish request that Claude Code did not recognize as a dev prompt
+- You want to be sure optimization runs before implementation
+
+### When automatic activation is expected
+
+The optimizer should auto-activate for:
+- Any Hinglish developer request ("login nahi ho raha", "api slow hai")
+- Short vague prompts with no file scope ("fix this", "add payment", "make responsive")
+- Compound tasks in one message ("fix login aur dashboard responsive bhi karo")
+- Deployment/config issues ("docker error", "build fail ho raha hai")
+
+If these are not triggering automatically after install, try the steps below.
+
+### Activation not firing after install
+
+1. Confirm plugin is installed: `claude plugin list` — should show `repository-aware-prompt-optimizer`
+2. Restart Claude Code fully (close app, reopen — not just the window)
+3. Confirm `SKILL.md` exists at `skills/repository-aware-prompt-optimizer/SKILL.md`
+4. Use manual invocation as a reliable fallback
+
+---
+
 ## Troubleshooting
 
 ### Skill not detected after install

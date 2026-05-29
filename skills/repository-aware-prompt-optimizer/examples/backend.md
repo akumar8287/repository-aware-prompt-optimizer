@@ -1,5 +1,7 @@
 # Example: Backend / API Change
 
+> **Auto-activation example.** The user did not mention the skill by name. The optimizer activated automatically because the prompt was a Hinglish feature request with no route, controller, or file specified. Trigger Source = `Automatic classification`.
+
 ---
 
 ## Rough User Prompt

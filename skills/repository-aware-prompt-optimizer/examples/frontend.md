@@ -1,5 +1,7 @@
 # Example: Frontend / UI Change
 
+> **Auto-activation example.** The user did not mention the skill by name. The optimizer activated automatically because the prompt was a Hinglish UI request with no component name or file scope. Trigger Source = `Automatic classification`.
+
 ---
 
 ## Rough User Prompt

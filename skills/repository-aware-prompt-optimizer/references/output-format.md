@@ -176,6 +176,102 @@ Output this before every optimized prompt preview. Output it once per optimizati
 I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
 ```
 
+### Trigger Source — When to Use Each
+
+| Trigger Source | When to use |
+|---|---|
+| `Automatic classification` | Prompt matched a rough/vague/Hinglish pattern and task type was inferred. No explicit skill invocation. |
+| `Manual invocation` | User explicitly mentioned the skill name, @repository-aware-prompt-optimizer, or "optimize this prompt." |
+| `Compound task detection` | Two or more independent tasks detected in one prompt. |
+| `Token optimization rule` | Prompt has no file scope and would cause broad repo scan — activated to prevent wasted reads. |
+| `Unclear request detection` | Prompt is too vague to classify — clarification prompt will be generated instead of implementation. |
+
+### Auto-Activation Examples
+
+These show the Activation Notice for prompts that triggered automatically (no explicit skill invocation):
+
+**Input:** `"login nahi ho raha yaar"`
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Detected a Bug Fix in the authentication layer from signal words: "login", "nahi ho raha" (not working).
+- No file or error message provided — investigation scope is undefined, risking broad repository scan.
+
+## Trigger Source
+Automatic classification
+
+## Activation Confidence
+High
+
+## Next Step
+I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
+```
+
+---
+
+**Input:** `"make responsive"`
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Detected a UI/Frontend Change from signal word: "responsive".
+- No component name, page name, or file provided — optimization will scope investigation to layout components and CSS.
+
+## Trigger Source
+Automatic classification
+
+## Activation Confidence
+Medium
+
+## Next Step
+I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
+```
+
+---
+
+**Input:** `"docker error"`
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Detected a Deployment/Config Issue from signal word: "docker".
+- No error message or config file provided — investigation will target Dockerfile and docker-compose.yml first.
+
+## Trigger Source
+Automatic classification
+
+## Activation Confidence
+Medium
+
+## Next Step
+I will generate an optimized Claude Code prompt preview. No implementation will run until you approve it.
+```
+
+---
+
+**Input:** `"login fix karo aur dashboard responsive bhi karo"`
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Multiple independent tasks detected in one request: Bug Fix (login) + UI/Frontend Change (dashboard responsive).
+- Splitting into 2 separate optimized prompts to prevent merge conflicts.
+
+## Trigger Source
+Compound task detection
+
+## Activation Confidence
+High
+
+## Next Step
+I will generate 2 separate optimized Claude Code prompt previews. No implementation will run until you approve.
+```
+
 ---
 
 ### Updated Notice (Edit Regeneration)

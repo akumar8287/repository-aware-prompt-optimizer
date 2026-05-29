@@ -1,5 +1,7 @@
 # Example: Unclear Prompts
 
+> **Auto-activation examples.** None of the prompts in this file include an explicit skill invocation. All activate automatically via `Unclear request detection` or `Automatic classification` because they are vague, Hinglish, or missing key implementation context.
+
 Unclear prompts require a clarification prompt instead of an implementation prompt. These examples show how to handle the most common cases.
 
 ---
@@ -338,3 +340,71 @@ When a request is split into multiple prompts, the preview shows all prompts wit
 - `e` or `edit` — adjust one or more prompts
 - `c` or `cancel` — stop
 ```
+
+---
+
+## Example 4: Short Vague Prompt — Auto-Activation Without Skill Name
+
+### Rough User Prompt
+
+```
+fix this
+```
+
+### Auto-Activation Behavior
+
+The optimizer activates automatically. No explicit skill invocation.
+
+### Activation Notice
+
+```markdown
+# Repository-Aware Prompt Optimizer Activated
+
+## Activation Reason
+- Prompt is too short and vague to identify task type, file, or affected feature.
+- Without optimization, Claude Code would scan broadly across the entire codebase.
+
+## Trigger Source
+Automatic classification
+
+## Activation Confidence
+Low
+
+## Next Step
+I will ask a clarification question instead of generating an implementation task.
+```
+
+### Output: Clarification Prompt
+
+```markdown
+# Clarification Needed
+
+Your request ("fix this") does not contain enough information. Paste this into Claude Code:
+
+---
+
+I need help fixing something in my application. To help you efficiently, please clarify:
+
+1. What is broken? (Which feature, page, or API endpoint?)
+2. What is the exact error or wrong behavior?
+3. What should it do instead?
+4. When did this start? (After a recent change, or has it never worked?)
+5. Any specific file you know is involved?
+
+---
+```
+
+---
+
+## Do-Not-Activate Examples
+
+These prompts must NOT trigger the optimizer:
+
+| User Input | Why it should NOT activate |
+|---|---|
+| "Update src/auth/login.ts to redirect expired JWT users to /login and add a Vitest test." | Already fully scoped — exact file, exact behavior, exact constraint |
+| "What is Docker?" | Non-development explanation request |
+| "Explain REST API." | General explanation — no implementation intent |
+| "Only edit src/components/Button.tsx and add disabled loading state without changing props." | Exact file + exact constraint — optimizer would add no value |
+
+If the optimizer activates for these despite being already-scoped, Activation Confidence must be `Low` and the Assumptions section must document the ambiguity explicitly.

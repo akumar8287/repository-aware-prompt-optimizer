@@ -215,6 +215,51 @@ Use these rules to assign the confidence level in the Post-Task Token Optimizati
 
 ---
 
+## Broad-Repo-Scan Risk Activation Rules
+
+These rules define when the optimizer should activate specifically to prevent unnecessary file reads caused by a vague or unscoped prompt.
+
+### Activation Conditions for Scan Risk
+
+| Prompt Pattern | Scan Risk | Activation |
+|---|---|---|
+| No file name or path mentioned | High — Claude reads speculatively | Auto-activate |
+| No feature name or module (just "fix", "error", "not working") | High — any module could be opened | Auto-activate |
+| Hinglish with only a feature area ("login nahi ho raha") | Medium-High — auth layer is obvious but files are not | Auto-activate |
+| Short two-word prompt ("fix login", "docker error", "add payment") | High — Claude opens broad context | Auto-activate |
+| Compound task in one prompt | High — multiple modules touched simultaneously | Auto-activate → split |
+| Prompt has no grep target (no symbol, route, class name) | Medium — Claude reads full module folders | Auto-activate |
+| Prompt explicitly references whole app ("project mein issue hai") | High — full repo scan risk | Auto-activate |
+
+### Why Vague Prompts Cause Scan Waste
+
+When Claude Code receives a prompt like `"login nahi ho raha yaar"`, with no file name and no error message, it typically:
+
+1. Opens `src/` and reads the directory tree
+2. Opens multiple files in the auth layer looking for "login"
+3. Reads configuration files, middleware, and route files speculatively
+4. May also open frontend components and API routes simultaneously
+
+A targeted optimized prompt replaces this with:
+1. `grep jwt.verify` → finds the middleware in one search
+2. Read 1–2 specific files
+3. Stop
+
+**Activation when scan risk is detected saves more total tokens than the cost of the longer optimized prompt.**
+
+### Scan Risk Activation Reason Template
+
+When `Trigger Source` is `Token optimization rule` and the reason is scan risk:
+
+```
+## Activation Reason
+- Detected broad scan risk — prompt has no file scope, no error message, and no grep target.
+- Without optimization, Claude Code would speculatively read [domain] module files.
+- Optimization will add targeted investigation to prevent reading unrelated files.
+```
+
+---
+
 ## Activation Notice and Token Saving
 
 When `Trigger Source` is `Token optimization rule`, the Activation Reason must explain the specific token-saving concern that triggered optimization.

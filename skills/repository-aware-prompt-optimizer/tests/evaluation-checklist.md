@@ -157,6 +157,45 @@ If any answer is "no", improve those sections before using the prompt.
 
 ---
 
+## Section 12: Hybrid Activation Behavior
+
+Use this section to verify automatic vs. manual activation behavior.
+
+### Auto-Activation Tests
+
+- [ ] **"login nahi ho raha yaar" auto-activates.** Optimizer activates without explicit invocation. Trigger Source = `Automatic classification`. Activation Confidence = `High`.
+- [ ] **"dashboard open nahi ho raha" auto-activates.** Detected as UI/Frontend Bug Fix. No explicit skill invocation required.
+- [ ] **"fix this" auto-activates when repo context exists.** Short vague prompt triggers automatic classification. Confidence = `Low` or `Medium` depending on context.
+- [ ] **"make responsive" auto-activates.** Detected as UI/Frontend Change. Trigger Source = `Automatic classification`.
+- [ ] **"docker error" auto-activates.** Detected as Deployment/Config Issue. Trigger Source = `Automatic classification`.
+- [ ] **"api slow hai" auto-activates.** Detected as Bug Fix — Performance. Trigger Source = `Automatic classification`.
+- [ ] **"add payment" auto-activates.** Detected as Feature Request with no scope. Trigger Source = `Automatic classification`.
+- [ ] **"backend issue check karo" auto-activates.** Detected as Bug Fix — Backend. Trigger Source = `Automatic classification`.
+- [ ] **"login fix karo aur dashboard responsive bhi karo" auto-activates as compound.** Trigger Source = `Compound task detection`. Split into 2 prompts.
+
+### Token-Optimization-Rule Activation Tests
+
+- [ ] **"optimize this prompt" activates via token optimization intent.** Trigger Source = `Token optimization rule` or `Manual invocation`.
+- [ ] **"make better prompt" activates.** Optimization intent detected even without explicit skill name.
+- [ ] **"reduce token" activates.** Token optimization rule fires.
+- [ ] **Prompt with no file scope + broad domain activates via scan-risk rule.** Trigger Source = `Token optimization rule`. Activation Reason references broad scan risk.
+
+### Manual Activation Tests
+
+- [ ] **"use repository-aware-prompt-optimizer" always activates.** Trigger Source = `Manual invocation`. Confidence = `High`.
+- [ ] **"@repository-aware-prompt-optimizer" always activates.** Same as above.
+- [ ] **"optimize this prompt: [text]" always activates.** Trigger Source = `Manual invocation`.
+- [ ] **Manual invocation with already-clear prompt still runs.** Optimizer respects the invocation even if the prompt was scoped — adds value through structure and verification steps.
+
+### Do-Not-Activate Tests
+
+- [ ] **Clear exact-file prompt does NOT require optimizer.** Example: "Update src/auth/login.ts to redirect expired JWT users to /login and add a Vitest test." Optimizer not needed — if it activates, Activation Confidence must be `Low` and Assumptions section must note the prompt was already scoped.
+- [ ] **Non-development question does NOT activate.** Example: "What is Docker?" Optimizer must not activate.
+- [ ] **Pure explanation request does NOT activate.** Example: "Explain REST API." No implementation intent — optimizer must not activate.
+- [ ] **Exact-constraint prompt does NOT activate.** Example: "Only edit src/components/Button.tsx and add disabled loading state without changing props." Already scoped — optimizer must not activate.
+
+---
+
 ## Combined Scoring
 
 | Score | Meaning |

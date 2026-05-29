@@ -1,5 +1,7 @@
 # Example: Bug Fix
 
+> **Auto-activation example.** The user did not mention the skill by name. The optimizer activated automatically because the prompt was a Hinglish bug report with no file scope. Trigger Source = `Automatic classification`.
+
 ---
 
 ## Rough User Prompt
